@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _2012113194_PER
+namespace _2012113194_ENT
 {
-    public class Class1
+    class Automovil
     {
+        public TipoAuto TipoAuto { get; set; }
     }
+  
 }

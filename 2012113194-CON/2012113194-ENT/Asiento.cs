@@ -9,5 +9,13 @@ namespace _2012113194_ENT
     class Asiento
     {
         public string NumSerie { get; set; }
+
+        public Carro Carro { get; set;}
+        public List<Cinturon> Cinturones { get; set; }
+
+        public Asiento()
+        {
+            Cinturones = new List<Cinturon>();
+        }
     }
 }

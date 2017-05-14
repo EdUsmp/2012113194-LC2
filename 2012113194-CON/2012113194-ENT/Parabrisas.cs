@@ -9,5 +9,6 @@ namespace _2012113194_ENT
     class Parabrisas
     {
         public string NumSerie { get; set; }
+        public Carro Carro { get; set; }
     }
 }

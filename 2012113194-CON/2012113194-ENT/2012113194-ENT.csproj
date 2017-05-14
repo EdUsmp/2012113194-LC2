@@ -41,8 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asiento.cs" />
+    <Compile Include="Automovil.cs" />
+    <Compile Include="Bus.cs" />
     <Compile Include="Carro.cs" />
     <Compile Include="Cinturon.cs" />
+    <Compile Include="Ensambladora.cs" />
     <Compile Include="Llanta.cs" />
     <Compile Include="Parabrisas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

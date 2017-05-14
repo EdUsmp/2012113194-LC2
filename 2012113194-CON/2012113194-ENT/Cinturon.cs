@@ -10,5 +10,6 @@ namespace _2012113194_ENT
     {
         public string NumSerie { get; set; }
         public int Metraje { get; set; }
+        public Asiento Asiento { get; set; }
     }
 }

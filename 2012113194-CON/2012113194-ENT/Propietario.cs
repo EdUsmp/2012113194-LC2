@@ -14,5 +14,7 @@ namespace _2012113194_ENT
         public string Apellidos { get; set; }
 
         public string LicenciaConducir { get; set; }
+
+        public Carro Carro { get; set; }
     }
 }
