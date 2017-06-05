@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    class Automovil
+    public class Volante
     {
-        public TipoAuto TipoAuto { get; set; }
+        public int VolanteId { get; set; }
+        public string NumSerie { get; set; }
     }
-  
 }

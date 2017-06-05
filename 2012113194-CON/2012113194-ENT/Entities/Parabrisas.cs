@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    class Volante
+    public class Parabrisas
     {
+        public int ParabrisasId { get; set; }
         public string NumSerie { get; set; }
-        public Carro Carro { get; set; }
     }
 }

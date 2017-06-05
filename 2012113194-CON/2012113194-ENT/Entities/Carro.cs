@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    public class Carro
+    public abstract class Carro
     {
+        
+        public List<Llanta> Llantas { get; set; }
+        public List<Asiento> Asientos { get; set; }
 
-        public TipoCarro TipoCarro { get; set; }
         public Volante Volante { get; set; }
         public Parabrisas Parabrisas { get; set; }
         public Propietario Propietario { get; set; }
-        public Bus Bus { get; set; }
-        public Automovil Automovil { get; set; }
-        public Ensambladora Ensambladora { get; set; }
-        public List<Llanta> Llantas { get; set; }
 
-        public List<Asiento> Asientos { get; set; }
+        public TipoCarro TipoCarro { get; set; }
+
+        public int CarroId { get; set; }
 
         public Carro()
         {
@@ -26,7 +26,8 @@ namespace _2012113194_ENT
             Asientos = new List<Asiento>();
         }
 
-       /* public Carro(Volante volante, Parabrisas parabrisas, int numLlantas, int numAsientos, Propietario propietario, TipoCarro tipocarro)
+        public Carro(Volante volante, Parabrisas parabrisas, int numLlantas,
+            int numAsientos, Propietario propietario, TipoCarro tipoCarro)
         {
             Llantas = new List<Llanta>(numLlantas);
             Asientos = new List<Asiento>(numAsientos);
@@ -34,8 +35,10 @@ namespace _2012113194_ENT
             Volante = volante;
             Parabrisas = parabrisas;
             Propietario = propietario;
-            TipoCarro = tipocarro;
-        }*/
+
+            TipoCarro = tipoCarro;
+        }
+
         public string NumSerieChasis { get; set; }
     }
 }

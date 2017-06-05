@@ -50,6 +50,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnsambladoraDbContext.cs" />
+    <Compile Include="EntityTypeConfigurations\AsientoConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\AutomovilConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\BusConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\CarroConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\CinturonConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\EnsambladoraConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\LlantaConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ParabrisasConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\PropietarioConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\VolanteConfiguration.cs" />
+    <Compile Include="Migrations\201706040235192_InitialModel.cs" />
+    <Compile Include="Migrations\201706040235192_InitialModel.Designer.cs">
+      <DependentUpon>201706040235192_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,6 +76,11 @@
       <Project>{8000b265-6c98-4af4-865f-d4483ca2b2f5}</Project>
       <Name>2012113194-ENT</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706040235192_InitialModel.resx">
+      <DependentUpon>201706040235192_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

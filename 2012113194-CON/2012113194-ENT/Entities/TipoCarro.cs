@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    class Cinturon
+    public enum TipoCarro
     {
-        public string NumSerie { get; set; }
-        public int Metraje { get; set; }
-        public Asiento Asiento { get; set; }
+        Automovil, Bus, NoDefinido
     }
 }

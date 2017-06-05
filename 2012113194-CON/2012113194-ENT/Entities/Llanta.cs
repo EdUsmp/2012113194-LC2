@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    public enum TipoCarro
+    public class Llanta
     {
-        Automovil, Bus          
+        public int LlantaId { get; set; }
+        public string NumSerie { get; set; }
+
     }
 }

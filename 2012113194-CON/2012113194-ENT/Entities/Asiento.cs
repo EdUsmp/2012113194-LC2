@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace _2012113194_ENT
 {
-    class Llanta
+    public class Asiento
     {
+        public int AsientoId { get; set; }
+        public Cinturon Cinturon { get; set; }
         public string NumSerie { get; set; }
-        public Carro Carro { get; set; }
+        public Asiento()
+        {
+            Cinturon = new Cinturon();
+        }
     }
 }
