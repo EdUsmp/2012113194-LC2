@@ -10,6 +10,7 @@ namespace _2012113194_ENT
     {
         public int LlantaId { get; set; }
         public string NumSerie { get; set; }
+        public Carro Carro { get; set; }
 
     }
 }

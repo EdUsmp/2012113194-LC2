@@ -16,7 +16,7 @@ namespace _2012113194_PER.EntityTypeConfigurations
 
             HasKey(b => b.BusId);
 
-            Property(b => b.BusId)
+            Property(b => b.BusId);
 
         }
     }
