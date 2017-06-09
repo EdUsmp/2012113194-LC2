@@ -23,9 +23,14 @@ namespace _2012113194_PER.EntityTypeConfigurations
             HasRequired(c => c.Cinturon)
                 .WithRequiredPrincipal(a => a.Asiento);
 
+<<<<<<< HEAD
             HasRequired(c => c.Carro)
                .WithMany(c => c.Asiento);
 
+=======
+            //HasOptional(c => c.Cinturon)
+               // .WithRequired(a => a.Asiento);
+>>>>>>> origin/master
         }
     }
 }
