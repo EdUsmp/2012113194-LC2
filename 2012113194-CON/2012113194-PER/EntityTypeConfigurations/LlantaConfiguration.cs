@@ -16,7 +16,10 @@ namespace _2012113194_PER.EntityTypeConfigurations
 
             HasKey(l => l.LlantaId);
 
-            Property(l => l.LlantaId)
+            Property(l => l.LlantaId);
+
+            HasRequired(c => c.Carro)
+               .WithMany(c => c.Llantas);
 
         }
     }

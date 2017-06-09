@@ -12,6 +12,7 @@ namespace _2012113194_ENT
         public List<Llanta> Llantas { get; set; }
         public List<Asiento> Asientos { get; set; }
 
+        public Ensambladora Ensambladora { get; set; }
         public Volante Volante { get; set; }
         public Parabrisas Parabrisas { get; set; }
         public Propietario Propietario { get; set; }
@@ -40,5 +41,6 @@ namespace _2012113194_ENT
         }
 
         public string NumSerieChasis { get; set; }
+        public ICollection<Asiento> Asiento { get; set; }
     }
 }

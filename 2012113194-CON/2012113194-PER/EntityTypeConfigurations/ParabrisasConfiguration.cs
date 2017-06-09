@@ -16,7 +16,7 @@ namespace _2012113194_PER.EntityTypeConfigurations
 
             HasKey(p => p.ParabrisasId);
 
-            Property(p => p.ParabrisasId)
+            Property(p => p.ParabrisasId);
 
         }
     }

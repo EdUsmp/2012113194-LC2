@@ -11,14 +11,21 @@ namespace _2012113194_PER.EntityTypeConfigurations
 {
     public class AsientoConfiguration : EntityTypeConfiguration<Asiento>
     {
+        //Asiento 1 - 1 Cinturon
         public AsientoConfiguration()
         {
             ToTable("Asiento");
 
             HasKey(a => a.AsientoId);
 
-            Property(a => a.AsientoId)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(a => a.NumSerie).HasMaxLength(255);
+
+            HasRequired(c => c.Cinturon)
+                .WithRequiredPrincipal(a => a.Asiento);
+
+            HasRequired(c => c.Carro)
+               .WithMany(c => c.Asiento);
+
         }
     }
 }

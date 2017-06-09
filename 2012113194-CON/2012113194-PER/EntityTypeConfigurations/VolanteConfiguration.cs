@@ -16,7 +16,7 @@ namespace _2012113194_PER.EntityTypeConfigurations
 
             HasKey(v => v.VolanteId);
 
-            Property(v => v.VolanteId)
+            Property(v => v.VolanteId);
 
         }
     }

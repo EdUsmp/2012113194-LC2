@@ -16,7 +16,9 @@ namespace _2012113194_PER.EntityTypeConfigurations
 
             HasKey(c => c.CinturonId);
 
-            Property(c => c.CinturonId)
+            Property(c => c.CinturonId);
+            Property(a => a.NumSerie).HasMaxLength(255);
+            //Property(a => a.Metraje).HasMaxLength();
 
         }
     }
