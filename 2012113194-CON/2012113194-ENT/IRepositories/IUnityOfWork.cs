@@ -9,16 +9,15 @@ namespace _2012113194_ENT.IRepositories
     public interface IUnityOfWork : IDisposable
     {
         IAsientoRepository Asiento { get; }
-        IAutomovilRepository Automovil { get; }
-        IBusRepository Bus { get; }
         ICarroRepository Carro { get; }
         ICinturonRepository Cinturon { get; }
-        IEnsambladoraRepository Ensambladora { get; }
         ILlantaRepository Llanta { get; }
         IParabrisasRepository Parabrisas { get; }
         IPropietarioRepository Propietario { get; }
         IVolanteRepository Volante { get; }
 
         int SaveChanges();
+
+        void StateModified(object entity);
     }
 }

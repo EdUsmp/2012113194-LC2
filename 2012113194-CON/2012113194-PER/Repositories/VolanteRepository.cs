@@ -10,15 +10,19 @@ namespace _2012113194_PER.Repositories
 {
     public class VolanteRepository : Repository<Volante>, IVolanteRepository
     {
-        private readonly EnsambladoraDbContext _Context;
+        //private readonly EnsambladoraDbContext _Context;
 
-        public VolanteRepository(EnsambladoraDbContext _Context)
-        {
-            this._Context = _Context;
-        }
+        //public VolanteRepository(EnsambladoraDbContext _Context)
+        //{
+        //    this._Context = _Context;
+        //}
 
-        private VolanteRepository()
-        {
+        //private VolanteRepository()
+        //{
+
+        //}
+        public VolanteRepository(EnsambladoraDbContext context):base(context)
+		{
 
         }
     }

@@ -10,15 +10,19 @@ namespace _2012113194_PER.Repositories
 {
     public class CinturonRepository : Repository<Cinturon>, ICinturonRepository
     {
-        private readonly EnsambladoraDbContext _Context;
+        //private readonly EnsambladoraDbContext _Context;
 
-        public CinturonRepository(EnsambladoraDbContext _Context)
-        {
-            this._Context = _Context;
-        }
+        //public CinturonRepository(EnsambladoraDbContext _Context)
+        //{
+        //    this._Context = _Context;
+        //}
 
-        private CinturonRepository()
-        {
+        //private CinturonRepository()
+        //{
+
+        //}
+        public CinturonRepository(EnsambladoraDbContext context):base(context)
+		{
 
         }
     }

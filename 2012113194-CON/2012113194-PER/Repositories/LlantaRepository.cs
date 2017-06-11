@@ -10,15 +10,19 @@ namespace _2012113194_PER.Repositories
 {
     public class LlantaRepository : Repository<Llanta>, ILlantaRepository
     {
-        private readonly EnsambladoraDbContext _Context;
+        //private readonly EnsambladoraDbContext _Context;
 
-        public LlantaRepository(EnsambladoraDbContext _Context)
-        {
-            this._Context = _Context;
-        }
+        //public LlantaRepository(EnsambladoraDbContext _Context)
+        //{
+        //    this._Context = _Context;
+        //}
 
-        private LlantaRepository()
-        {
+        //private LlantaRepository()
+        //{
+
+        //}
+        public LlantaRepository(EnsambladoraDbContext context):base(context)
+		{
 
         }
     }

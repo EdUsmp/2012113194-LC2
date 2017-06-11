@@ -8,5 +8,6 @@ namespace _2012113194_ENT.IRepositories
 {
     public interface IAsientoRepository : IRepository<Asiento>
     {
+        //Asiento Get(int? id);
     }
 }

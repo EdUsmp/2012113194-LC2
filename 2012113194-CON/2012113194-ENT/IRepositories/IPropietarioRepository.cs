@@ -8,7 +8,7 @@ namespace _2012113194_ENT.IRepositories
 {
     public interface IPropietarioRepository : IRepository<Propietario>
     {
-        IEnumerable<Propietario> GetActorWithCarros(int pageIndex, int pageSize);
+        //IEnumerable<Propietario> GetActorWithCarros(int pageIndex, int pageSize);
         //27:50
     }
 }

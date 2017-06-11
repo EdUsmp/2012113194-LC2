@@ -10,15 +10,19 @@ namespace _2012113194_PER.Repositories
 {
     public class CarroRepository : Repository<Carro>, ICarroRepository
     {
-        private readonly EnsambladoraDbContext _Context;
+        //private readonly EnsambladoraDbContext _Context;
 
-        public CarroRepository(EnsambladoraDbContext _Context)
-        {
-            this._Context = _Context;
-        }
+        //public CarroRepository(EnsambladoraDbContext _Context)
+        //{
+        //    this._Context = _Context;
+        //}
 
-        private CarroRepository()
-        {
+        //private CarroRepository()
+        //{
+
+        //}
+        public CarroRepository(EnsambladoraDbContext context):base(context)
+		{
 
         }
     }

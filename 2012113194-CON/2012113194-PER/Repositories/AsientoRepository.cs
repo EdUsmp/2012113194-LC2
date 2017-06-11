@@ -10,16 +10,25 @@ namespace _2012113194_PER.Repositories
 {
     public class AsientoRepository : Repository<Asiento>, IAsientoRepository
     {
-        private readonly EnsambladoraDbContext _Context;
+        //private readonly EnsambladoraDbContext _Context;
 
-        public AsientoRepository(EnsambladoraDbContext _Context)
-        {
-            this._Context = _Context;
+        //public AsientoRepository(EnsambladoraDbContext _Context)
+        //{
+        //    this._Context = _Context;
+        //}
+
+        //private AsientoRepository()
+        //{
+
+        //}
+
+        public AsientoRepository(EnsambladoraDbContext context):base(context)
+		{
+
         }
-
-        private AsientoRepository()
-        {
-
-        }
+        //Asiento IAsientoRepository.Get(int? id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
