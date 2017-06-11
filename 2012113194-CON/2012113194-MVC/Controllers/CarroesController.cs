@@ -8,27 +8,41 @@ using System.Web;
 using System.Web.Mvc;
 using _2012113194_ENT;
 using _2012113194_PER;
+using _2012113194_ENT.IRepositories;
 
 namespace _2012113194_MVC.Controllers
 {
     public class CarroesController : Controller
     {
-        private EnsambladoraDbContext db = new EnsambladoraDbContext();
+        //private EnsambladoraDbContext db = new EnsambladoraDbContext();
+        //2private UnityOfWork unityOfWork = UnityOfWork.Instance;
+        // GET: Asientoes
+        private readonly IUnityOfWork _UnityOfWork;
 
-        // GET: Carroes
-        public ActionResult Index()
+        public CarroesController(IUnityOfWork unityOfWork)
         {
-            return View(db.Carroes.ToList());
+            _UnityOfWork = unityOfWork;
         }
 
-        // GET: Carroes/Details/5
+        public CarroesController()
+        {
+
+        }
+        public ActionResult Index()
+        {
+            //return View(db.Asientoes.ToList());
+            return View(_UnityOfWork.Carro.GetAll());
+        }
+
+        // GET: Asientoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Carro carro = db.Carroes.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Carro carro = _UnityOfWork.Carro.Get(id);
             if (carro == null)
             {
                 return HttpNotFound();
@@ -36,37 +50,40 @@ namespace _2012113194_MVC.Controllers
             return View(carro);
         }
 
-        // GET: Carroes/Create
+        // GET: Asientoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Carroes/Create
+        // POST: Asientoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CarroId,TipoCarro,NumSerieChasis")] Carro carro)
+        public ActionResult Create([Bind(Include = "AsientoId,NumSerie,CarroId")] Carro carro)
         {
             if (ModelState.IsValid)
             {
-                db.Carroes.Add(carro);
-                db.SaveChanges();
+                //db.Asientoes.Add(asiento);
+                _UnityOfWork.Carro.Add(carro);
+                //db.SaveChanges();
+                _UnityOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(carro);
         }
 
-        // GET: Carroes/Edit/5
+        // GET: Asientoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Carro carro = db.Carroes.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Carro carro = _UnityOfWork.Carro.Get(id);
             if (carro == null)
             {
                 return HttpNotFound();
@@ -74,30 +91,33 @@ namespace _2012113194_MVC.Controllers
             return View(carro);
         }
 
-        // POST: Carroes/Edit/5
+        // POST: Asientoes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CarroId,TipoCarro,NumSerieChasis")] Carro carro)
+        public ActionResult Edit([Bind(Include = "AsientoId,NumSerie,CarroId")] Carro carro)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(carro).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(asiento).State = EntityState.Modified;
+                _UnityOfWork.StateModified(carro);
+                //db.SaveChanges();
+                _UnityOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(carro);
         }
 
-        // GET: Carroes/Delete/5
+        // GET: Asientoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Carro carro = db.Carroes.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Carro carro = _UnityOfWork.Carro.Get(id);
             if (carro == null)
             {
                 return HttpNotFound();
@@ -105,14 +125,17 @@ namespace _2012113194_MVC.Controllers
             return View(carro);
         }
 
-        // POST: Carroes/Delete/5
+        // POST: Asientoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Carro carro = db.Carroes.Find(id);
-            db.Carroes.Remove(carro);
-            db.SaveChanges();
+            //Asiento asiento = db.Asientoes.Find(id);
+            Carro carro = _UnityOfWork.Carro.Get(id);
+            //db.Asientoes.Remove(asiento);
+            _UnityOfWork.Carro.Delete(carro);
+            //db.SaveChanges();
+            _UnityOfWork.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +143,8 @@ namespace _2012113194_MVC.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                _UnityOfWork.Dispose();
             }
             base.Dispose(disposing);
         }

@@ -22,6 +22,19 @@ namespace _2012113194_PER.Repositories
         public IVolanteRepository Volante { get; private set; }
         public static UnityOfWork Instance { get; set; }
 
+        public object Cinturons
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public UnityOfWork(EnsambladoraDbContext context)
         {
             _Context = context;

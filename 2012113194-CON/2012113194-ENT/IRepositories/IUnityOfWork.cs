@@ -11,6 +11,7 @@ namespace _2012113194_ENT.IRepositories
         IAsientoRepository Asiento { get; }
         ICarroRepository Carro { get; }
         ICinturonRepository Cinturon { get; }
+        object Cinturons { get; set; }
         ILlantaRepository Llanta { get; }
         IParabrisasRepository Parabrisas { get; }
         IPropietarioRepository Propietario { get; }

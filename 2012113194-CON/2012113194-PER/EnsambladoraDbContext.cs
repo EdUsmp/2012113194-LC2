@@ -38,13 +38,13 @@ namespace _2012113194_PER
             base.OnModelCreating(modelBuilder);
         }
 
-        public System.Data.Entity.DbSet<_2012113194_ENT.Asiento> Asientoes { get; set; }
+        //public System.Data.Entity.DbSet<_2012113194_ENT.Asiento> Asientoes { get; set; }
 
-        public System.Data.Entity.DbSet<_2012113194_ENT.Carro> Carroes { get; set; }
+        //public System.Data.Entity.DbSet<_2012113194_ENT.Carro> Carroes { get; set; }
 
-        public System.Data.Entity.DbSet<_2012113194_ENT.Cinturon> Cinturons { get; set; }
+        //public System.Data.Entity.DbSet<_2012113194_ENT.Cinturon> Cinturons { get; set; }
 
-        public System.Data.Entity.DbSet<_2012113194_ENT.Parabrisas> Parabrisas { get; set; }
+        //public System.Data.Entity.DbSet<_2012113194_ENT.Parabrisas> Parabrisas { get; set; }
     }
 }
 

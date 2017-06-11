@@ -25,5 +25,15 @@ namespace _2012113194_PER.Repositories
 		{
 
         }
+
+        public void Add(Cinturon cinturon)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ICarroRepository.Delete(Parabrisas parabrisas)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

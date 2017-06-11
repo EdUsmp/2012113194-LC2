@@ -8,27 +8,41 @@ using System.Web;
 using System.Web.Mvc;
 using _2012113194_ENT;
 using _2012113194_PER;
+using _2012113194_ENT.IRepositories;
 
 namespace _2012113194_MVC.Controllers
 {
     public class ParabrisasController : Controller
     {
-        private EnsambladoraDbContext db = new EnsambladoraDbContext();
+        //private EnsambladoraDbContext db = new EnsambladoraDbContext();
+        //2private UnityOfWork unityOfWork = UnityOfWork.Instance;
+        // GET: Asientoes
+        private readonly IUnityOfWork _UnityOfWork;
 
-        // GET: Parabrisas
-        public ActionResult Index()
+        public ParabrisasController(IUnityOfWork unityOfWork)
         {
-            return View(db.Parabrisas.ToList());
+            _UnityOfWork = unityOfWork;
         }
 
-        // GET: Parabrisas/Details/5
+        public ParabrisasController()
+        {
+
+        }
+        public ActionResult Index()
+        {
+            //return View(db.Asientoes.ToList());
+            return View(_UnityOfWork.Parabrisas.GetAll());
+        }
+
+        // GET: Asientoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parabrisas parabrisas = db.Parabrisas.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Parabrisas parabrisas = _UnityOfWork.Parabrisas.Get(id);
             if (parabrisas == null)
             {
                 return HttpNotFound();
@@ -36,37 +50,40 @@ namespace _2012113194_MVC.Controllers
             return View(parabrisas);
         }
 
-        // GET: Parabrisas/Create
+        // GET: Asientoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Parabrisas/Create
+        // POST: Asientoes/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ParabrisasId,NumSerie")] Parabrisas parabrisas)
+        public ActionResult Create([Bind(Include = "AsientoId,NumSerie,CarroId")] Parabrisas parabrisas)
         {
             if (ModelState.IsValid)
             {
-                db.Parabrisas.Add(parabrisas);
-                db.SaveChanges();
+                //db.Asientoes.Add(asiento);
+                _UnityOfWork.Parabrisas.Add(parabrisas);
+                //db.SaveChanges();
+                _UnityOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(parabrisas);
         }
 
-        // GET: Parabrisas/Edit/5
+        // GET: Asientoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parabrisas parabrisas = db.Parabrisas.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Parabrisas parabrisas = _UnityOfWork.Parabrisas.Get(id);
             if (parabrisas == null)
             {
                 return HttpNotFound();
@@ -74,30 +91,33 @@ namespace _2012113194_MVC.Controllers
             return View(parabrisas);
         }
 
-        // POST: Parabrisas/Edit/5
+        // POST: Asientoes/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ParabrisasId,NumSerie")] Parabrisas parabrisas)
+        public ActionResult Edit([Bind(Include = "AsientoId,NumSerie,CarroId")] Parabrisas parabrisas)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(parabrisas).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(asiento).State = EntityState.Modified;
+                _UnityOfWork.StateModified(parabrisas);
+                //db.SaveChanges();
+                _UnityOfWork.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(parabrisas);
         }
 
-        // GET: Parabrisas/Delete/5
+        // GET: Asientoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Parabrisas parabrisas = db.Parabrisas.Find(id);
+            //Asiento asiento = db.Asientoes.Find(id);
+            Parabrisas parabrisas = _UnityOfWork.Parabrisas.Get(id);
             if (parabrisas == null)
             {
                 return HttpNotFound();
@@ -105,14 +125,17 @@ namespace _2012113194_MVC.Controllers
             return View(parabrisas);
         }
 
-        // POST: Parabrisas/Delete/5
+        // POST: Asientoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Parabrisas parabrisas = db.Parabrisas.Find(id);
-            db.Parabrisas.Remove(parabrisas);
-            db.SaveChanges();
+            //Asiento asiento = db.Asientoes.Find(id);
+            Parabrisas parabrisas = _UnityOfWork.Parabrisas.Get(id);
+            //db.Asientoes.Remove(asiento);
+            _UnityOfWork.Carro.Delete(parabrisas);
+            //db.SaveChanges();
+            _UnityOfWork.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -120,7 +143,8 @@ namespace _2012113194_MVC.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                _UnityOfWork.Dispose();
             }
             base.Dispose(disposing);
         }
